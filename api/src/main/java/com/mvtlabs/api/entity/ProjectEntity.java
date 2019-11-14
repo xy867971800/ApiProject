@@ -16,17 +16,17 @@ public class ProjectEntity {
     @Column(name = "project_name",nullable = false,length = 80)
     private String projectName;
 
-    @Column(name = "app_id", nullable = false, length = 16)
-    private String AppId;
+    @Column(name = "app_id", unique = true ,nullable = false, length = 16)
+    private String appId;
 
     @Column(name = "api_uid",unique = true, nullable = false, length = 36)
-    private String ApiUid;
+    private String apiUid;
 
     @Column(name = "api_secret", nullable = false ,length = 40)
-    private String ApiSecret;
+    private String apiSecret;
 
     @Column(name = "create_time")
-    private Date createTime = new Date();
+    private Date createTime = new Date( );
 
     @Column(name = "usage_quantity")
     private int usageQuantity;
@@ -56,27 +56,27 @@ public class ProjectEntity {
     }
 
     public String getAppId() {
-        return AppId;
+        return appId;
     }
 
     public void setAppId(String appId) {
-        AppId = appId;
+        this.appId = appId;
     }
 
     public String getApiUid() {
-        return ApiUid;
+        return apiUid;
     }
 
     public void setApiUid(String apiUid) {
-        ApiUid = apiUid;
+        this.apiUid = apiUid;
     }
 
     public String getApiSecret() {
-        return ApiSecret;
+        return apiSecret;
     }
 
     public void setApiSecret(String apiSecret) {
-        ApiSecret = apiSecret;
+        this.apiSecret = apiSecret;
     }
 
     public Date getCreateTime() {
@@ -93,5 +93,18 @@ public class ProjectEntity {
 
     public void setUsageQuantity(int usageQuantity) {
         this.usageQuantity = usageQuantity;
+    }
+
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", useId='" + useId + '\'' +
+                ", projectName='" + projectName +'\'' +
+                ", appId='" + appId + '\'' +
+                ", apiSecret=" + apiSecret + '\'' +
+                ", apiUid=" + apiUid + '\'' +
+                ", createTime=" + createTime +
+                ", usageQuantity=" + usageQuantity +
+                '}';
     }
 }

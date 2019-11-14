@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ProjectDao extends JpaRepository<ProjectEntity,Long> {
     List<ProjectEntity> findByUseId(String useId);
+    ProjectEntity findByAppId(String appId);
 }
