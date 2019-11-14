@@ -36,7 +36,7 @@ public class UserController {
     @PostMapping(value = "/register",produces = {"application/json;charset=UTF-8"})
     public Response<UserHttpModel> registerUser(@RequestBody UserRegisterRequest request, HttpServletRequest servletRequest){
         return userService.registerUser(request);
-    }
+    }//@RequestBody的作用是将传入参数转化为json
 
     @ApiOperation(value = "发送邮件验证码")
     @PostMapping(value = "/verification",produces = {"application/json;charset=UTF-8"})
@@ -107,8 +107,10 @@ public class UserController {
 
     @ApiOperation(value = "测试Http请求的发送")
     @PostMapping(value = "/test/test",produces = {"application/json;charset=UTF-8"})
-    public Response<String> test(HttpServletRequest request){
-        System.out.println(request.getHeader("confirm"));
+    public String test(HttpServletRequest request){
+    //    return httpService.parseRequest(request);
+    //    return httpService.getPost(request);
+    //    return httpService.getPost2(request);
         return httpService.parseRequest(request);
     }
 
