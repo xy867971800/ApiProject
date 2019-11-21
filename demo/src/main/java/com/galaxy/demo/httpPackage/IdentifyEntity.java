@@ -3,7 +3,6 @@ package com.galaxy.demo.httpPackage;
 public class IdentifyEntity {
 
     private String appId;
-
     private String apiSecret;
 
     public String getAppId() {
